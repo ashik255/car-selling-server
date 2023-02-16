@@ -99,7 +99,13 @@ async function run() {
 
     ///Make admin
     //post users
-
+     
+    app.get('/users', async (req, res) => {
+      // console.log(req.query)
+      const curser = usersCollection.find({});
+      const data = await curser.toArray();
+      res.json(data);
+    })
 
     app.post('/users', async (req, res) => {
       const user = req.body;
